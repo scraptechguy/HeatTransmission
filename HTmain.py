@@ -7,11 +7,51 @@ materials = {
 }
 
 
-mat1 = input("Enter first material: ")
-mat2 = input("Enter second material: ")
+while True:
+    
+    mat1 = input("Enter the first material: ")
 
-T1 = float(input("Enter the temprature of {}: ".format(mat1)))
-T2 = float(input("Enter the temprature of {}: ".format(mat2)))
+    try:
+        materials[mat1]
+        break
+
+    except KeyError:
+        print("Input value's got to be in the list of materials.")
+
+
+while True:
+    
+    mat2 = input("Enter the second material: ")
+
+    try:
+        materials[mat2]
+        break
+
+    except KeyError:
+        print("Sorry, input value's got to be in the list of materials.")
+
+
+
+
+while True:
+
+    try:
+        T1 = float(input("Enter the temperature of {}: ".format(mat1)))
+        break
+
+    except ValueError:
+        print("Sorry, temperature has got to be a number.")
+
+
+while True:
+
+    try:
+        T2 = float(input("Enter the temperature of {}: ".format(mat2)))
+        break
+
+    except ValueError:
+        print("Sorry, temperature has got to be a number.")
+
 
 wn = turtle.Screen()
 wn.setup(width=1280, height=720)
@@ -69,7 +109,7 @@ txt1.write(
     font=("Courier", 24, "normal")
 )
 
-# text writing delta temprature
+# text writing delta temperature
 
 txt2 = turtle.Turtle()
 txt2.hideturtle()
@@ -88,16 +128,13 @@ elif T1 < T2:
     obj3.goto(deltaT, 0)
 
 
-
-# c1*(T1 - T) = c2*(T - T2)
-
 print("SHC of first material is " + materials[mat1])
 print("SHC of second material is " + materials[mat2])
 
 while True:
     wn.update()
 
-    # text writing delta temprature
+    # text writing delta temperature
 
     txt2.clear()
     txt2.write(
