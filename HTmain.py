@@ -3,7 +3,15 @@ import turtle
 # table of specific heat capacities [in Joules per kilogram Kelvin]
 
 materials = {
-    "iron": "440", "steel": "452"
+    "iron": "440", 
+    "steel": "452",
+    "gold": "129",
+    "mercury": "140",
+    "copper": "385",
+    "aluminum": "902",
+    "water": "4197",
+    "air": "1000",
+    "ice": "2003"
 }
 
 
@@ -128,8 +136,9 @@ elif T1 < T2:
     obj3.goto(deltaT, 0)
 
 
-print("SHC of first material is " + materials[mat1])
-print("SHC of second material is " + materials[mat2])
+
+# c1*(T1 - T) = c2*(T - T2)
+
 
 while True:
     wn.update()
@@ -141,4 +150,6 @@ while True:
         "delta T is {} degrees celsius".format(deltaT),
         font=("Courier", 25, "normal")
     )
+
+
 
