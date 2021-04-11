@@ -1,5 +1,11 @@
 import turtle
 
+# table of specific heat capacities [in Joules per kilogram Kelvin]
+
+materials = {
+    "iron": "440", "steel": "452"
+}
+
 
 mat1 = input("Enter first material: ")
 mat2 = input("Enter second material: ")
@@ -10,6 +16,7 @@ T2 = float(input("Enter the temprature of {}: ".format(mat2)))
 wn = turtle.Screen()
 wn.setup(width=1280, height=720)
 wn.bgcolor("black")
+wn.tracer(0)
 
 # obj1 is main block displaying two different materials 
 # obj2 is the line representing two different objects (on the left and on the right)
@@ -43,15 +50,12 @@ obj1.showturtle()
 obj2.showturtle()
 obj3.showturtle()
 
+# text writing names of the two materials
+
 txt1 = turtle.Turtle()
 txt1.hideturtle()
 txt1.color("white")
 txt1.penup()
-
-txt2 = turtle.Turtle()
-txt2.hideturtle()
-txt2.color("white")
-txt2.penup()
 
 txt1.goto(-250, 140)
 txt1.write(
@@ -59,21 +63,45 @@ txt1.write(
     font=("Courier", 24, "normal")
 )
 
-txt2.goto(200, 140)
-txt2.write(
+txt1.goto(200, 140)
+txt1.write(
     "{}".format(mat2),
     font=("Courier", 24, "normal")
 )
 
+# text writing delta temprature
+
+txt2 = turtle.Turtle()
+txt2.hideturtle()
+txt2.color("white")
+txt2.penup()
+
+txt2.goto(-300, -300)
+
+
 if T1 > T2:
     deltaT = T1 - T2
+    obj3.goto(-deltaT, 0)
 
 elif T1 < T2:
     deltaT = T2 - T1
+    obj3.goto(deltaT, 0)
 
+
+
+# c1*(T1 - T) = c2*(T - T2)
+
+print("SHC of first material is " + materials[mat1])
+print("SHC of second material is " + materials[mat2])
 
 while True:
     wn.update()
 
-    obj3.goto(deltaT, 0)
+    # text writing delta temprature
+
+    txt2.clear()
+    txt2.write(
+        "delta T is {} degrees celsius".format(deltaT),
+        font=("Courier", 25, "normal")
+    )
 
