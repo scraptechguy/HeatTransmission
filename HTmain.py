@@ -159,6 +159,27 @@ while True:
     elif T2 == T:
         break
 
+    elif T1 == T2:
+        break
+
+
+    if T1 < T2:
+        x = obj3.xcor()
+        x -= T1 / T2
+        obj3.setx(x)
+
+        T1 += T1 / T2
+        T2 -= T1 / T2
+
+    elif T1 > T2:
+        x = obj3.xcor()
+        x += T2 / T1
+        obj3.setx(x)
+
+        T1 -= T2 / T1
+        T2 += T2 / T1
+
+
     txt2.clear()
 
     txt2.goto(-300, -300)
