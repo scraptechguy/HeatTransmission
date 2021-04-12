@@ -1,4 +1,5 @@
 import turtle
+import math
 
 # table of specific heat capacities [in Joules per kilogram Kelvin]
 
@@ -137,19 +138,49 @@ elif T1 < T2:
 
 
 
-# c1*(T1 - T) = c2*(T - T2)
+def go_left():
+    x = obj3.xcor()
+    x -= 0.1
+    obj3.setx(x)
 
+def go_right():
+    x = obj3.xcor()
+    x += 0.1
+    obj3.setx(x)
+
+T = (float(materials[mat1]) * float(T1) + float(materials[mat2]) * float(T2)) / (float(materials[mat1]) + float(materials[mat2]))
 
 while True:
     wn.update()
 
-    # text writing delta temperature
+    if T1 == T:
+        break
+
+    elif T2 == T:
+        break
 
     txt2.clear()
+
+    txt2.goto(-300, -300)
     txt2.write(
-        "delta T is {} degrees celsius".format(deltaT),
-        font=("Courier", 25, "normal")
+        "Terminal T is {} ".format(T),
+        font=("Courier", 23, "normal")
     )
 
+    txt2.goto(-200, 300)
+    txt2.write(
+        "{} ".format(T1),
+        font=("Courier", 20, "normal")
+    )
+
+    txt2.goto(200, 300)
+    txt2.write(
+        "{} ".format(T2),
+        font=("Courier", 20, "normal")
+    )
+
+
+while True:
+    wn.update()
 
 
