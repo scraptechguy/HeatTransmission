@@ -155,7 +155,7 @@ while True:
 
     if T1 < T2:
         x = obj3.xcor()
-        x -= (T2 - T) / 1000
+        x -= (T - T1) / 1000    #(T2 - T) / 1000?
         obj3.setx(x)
 
         T1 += (T - T1) / 1000
@@ -163,7 +163,7 @@ while True:
 
     elif T1 > T2:
         x = obj3.xcor()
-        x += (T1 - T) / 1000
+        x += (T - T2) / 1000    #(T1 - T) / 1000?
         obj3.setx(x)
 
         T1 -= (T1 - T) / 1000
