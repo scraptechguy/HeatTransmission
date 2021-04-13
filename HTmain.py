@@ -137,18 +137,8 @@ elif T1 < T2:
     obj3.goto(deltaT, 0)
 
 
-
-def go_left():
-    x = obj3.xcor()
-    x -= 0.1
-    obj3.setx(x)
-
-def go_right():
-    x = obj3.xcor()
-    x += 0.1
-    obj3.setx(x)
-
 T = (float(materials[mat1]) * float(T1) + float(materials[mat2]) * float(T2)) / (float(materials[mat1]) + float(materials[mat2]))
+
 
 while True:
     wn.update()
@@ -165,19 +155,19 @@ while True:
 
     if T1 < T2:
         x = obj3.xcor()
-        x -= T1 / T2
+        x -= (T2 - T) / 1000
         obj3.setx(x)
 
-        T1 += T1 / T2
-        T2 -= T1 / T2
+        T1 += (T - T1) / 1000
+        T2 -= (T2 - T) / 1000
 
     elif T1 > T2:
         x = obj3.xcor()
-        x += T2 / T1
+        x += (T1 - T) / 1000
         obj3.setx(x)
 
-        T1 -= T2 / T1
-        T2 += T2 / T1
+        T1 -= (T1 - T) / 1000
+        T2 += (T - T2) / 1000
 
 
     txt2.clear()
@@ -203,5 +193,3 @@ while True:
 
 while True:
     wn.update()
-
-
