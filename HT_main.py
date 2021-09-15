@@ -5,6 +5,8 @@ import math
 
 materials = {
     "iron": "440", 
+    "aluminium": "887",
+    "copper": "385",
     "steel": "452",
     "gold": "129",
     "mercury": "140",
@@ -12,7 +14,11 @@ materials = {
     "aluminum": "902",
     "water": "4197",
     "air": "1000",
-    "ice": "2003"
+    "ice": "2003",
+    "silver": "236",
+    "tin": "226",
+    "zinc": "389",
+    "sand": "780"
 }
 
 
@@ -29,6 +35,16 @@ while True:
 
 
 while True:
+
+    try:
+        T1 = float(input("Enter the temperature of {}: ".format(mat1)))
+        break
+
+    except ValueError:
+        print("Sorry, temperature has got to be a number.")
+
+
+while True:
     
     mat2 = input("Enter the second material: ")
 
@@ -38,18 +54,6 @@ while True:
 
     except KeyError:
         print("Sorry, input value's got to be in the list of materials.")
-
-
-
-
-while True:
-
-    try:
-        T1 = float(input("Enter the temperature of {}: ".format(mat1)))
-        break
-
-    except ValueError:
-        print("Sorry, temperature has got to be a number.")
 
 
 while True:
